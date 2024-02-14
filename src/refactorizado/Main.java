@@ -23,7 +23,10 @@ public class Main {
 
     public static void mostrarVector(int[] vector,boolean primosGenerados) {
         for (int i = 0; i < vector.length; i++) {
-            if (i % 10 == 0) System.out.println();
+            if (i % 10 == 0){
+                System.out.println();
+            }
+
             if(primosGenerados){
                 System.out.print(vector[i] + "\t");
             } else {
@@ -45,7 +48,7 @@ public class Main {
             // Criba
             for (int i = 2; i < Math.sqrt(dim) + 1; i++) {
                 if (esPrimo[i]) {
-            // Eliminar los múltiplos de i
+                // Eliminar los múltiplos de i
                     eliminarMultiplos(i, esPrimo);
                 }
             }
@@ -66,23 +69,26 @@ public class Main {
 
     public static void rellenarPrimos(boolean[] esPrimo, int[] primos) {
         for (int i = 0, j = 0; i < esPrimo.length; i++) {
-            if (esPrimo[i])
+            if (esPrimo[i]) {
                 primos[j++] = i;
+            }
         }
     }
 
     public static int contarPrimos(boolean[] esPrimo) {
         int cuenta = 0;
         for (boolean b : esPrimo) {
-            if (b)
+            if (b) {
                 cuenta++;
+            }
         }
         return cuenta;
     }
 
     public static void eliminarMultiplos(int i, boolean[] esPrimo) {
-        for (int j = 2 * i; j < esPrimo.length; j += i)
+        for (int j = 2 * i; j < esPrimo.length; j += i) {
             esPrimo[j] = false;
+        }
     }
 
     public static void inicializar(boolean[] esPrimo) {
